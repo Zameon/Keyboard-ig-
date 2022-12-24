@@ -162,6 +162,9 @@ private: System::Windows::Forms::ToolStripSeparator^ darkModeToolStripMenuItem;
 private: System::Windows::Forms::ToolStripMenuItem^ darkModeToolStripMenuItem1;
 private: System::Windows::Forms::ToolStripMenuItem^ swapToolStripMenuItem;
 private: System::Windows::Forms::ToolStripMenuItem^ transparentToolStripMenuItem;
+private: System::Windows::Forms::ToolStripMenuItem^ voiceToolStripMenuItem;
+private: System::Windows::Forms::ToolStripMenuItem^ activateClavierToolStripMenuItem;
+private: System::Windows::Forms::ToolStripMenuItem^ textToSpeechToolStripMenuItem;
 
 
 
@@ -299,6 +302,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ transparentToolStripMenuItem
 			this->darkModeToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->swapToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->transparentToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->voiceToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->activateClavierToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->textToSpeechToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -1500,10 +1506,13 @@ private: System::Windows::Forms::ToolStripMenuItem^ transparentToolStripMenuItem
 			// menuStrip1
 			// 
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->changeModToolStripMenuItem });
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->changeModToolStripMenuItem,
+					this->voiceToolStripMenuItem
+			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1387, 30);
+			this->menuStrip1->Size = System::Drawing::Size(1387, 28);
 			this->menuStrip1->TabIndex = 2;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -1545,6 +1554,37 @@ private: System::Windows::Forms::ToolStripMenuItem^ transparentToolStripMenuItem
 			this->transparentToolStripMenuItem->Text = L"Transparent";
 			this->transparentToolStripMenuItem->CheckedChanged += gcnew System::EventHandler(this, &OnScreenKeyboard::transparency);
 			this->transparentToolStripMenuItem->Click += gcnew System::EventHandler(this, &OnScreenKeyboard::transparency);
+			// 
+			// voiceToolStripMenuItem
+			// 
+			this->voiceToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->activateClavierToolStripMenuItem,
+					this->textToSpeechToolStripMenuItem
+			});
+			this->voiceToolStripMenuItem->Name = L"voiceToolStripMenuItem";
+			this->voiceToolStripMenuItem->Size = System::Drawing::Size(63, 24);
+			this->voiceToolStripMenuItem->Text = L"Voice ";
+			// 
+			// activateClavierToolStripMenuItem
+			// 
+			this->activateClavierToolStripMenuItem->Name = L"activateClavierToolStripMenuItem";
+			this->activateClavierToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->activateClavierToolStripMenuItem->Text = L"Activate Clavier";
+			this->activateClavierToolStripMenuItem->CheckedChanged += gcnew System::EventHandler(this, &OnScreenKeyboard::ClavierSystem);
+			this->activateClavierToolStripMenuItem->Click += gcnew System::EventHandler(this, &OnScreenKeyboard::ClavierSystem);
+			//EKHANE ADD KOR EKTA
+			
+			// 
+			// textToSpeechToolStripMenuItem
+			// 
+			this->textToSpeechToolStripMenuItem->Name = L"textToSpeechToolStripMenuItem";
+			this->textToSpeechToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->textToSpeechToolStripMenuItem->Text = L"Text to Speech";
+			this->textToSpeechToolStripMenuItem->CheckedChanged += gcnew System::EventHandler(this, &OnScreenKeyboard::TextToSpeech);
+			this->textToSpeechToolStripMenuItem->Click += gcnew System::EventHandler(this, &OnScreenKeyboard::TextToSpeech);
+		
+			//EKHANE ADD KOR AREKTA
+		
 			// 
 			// OnScreenKeyboard
 			// 
@@ -1957,6 +1997,20 @@ private: System::Void checkBox38_CheckedChanged_1(System::Object^ sender, System
 
 
 	   }
+
+private: System::Void ClavierSystem(System::Object^ sender, System::EventArgs^ e) 
+{
+	ToolStripMenuItem^ button = safe_cast<ToolStripMenuItem^>(sender);
+	
+
+}
+
+private: System::Void TextToSpeech(System::Object^ sender, System::EventArgs^ e)
+{
+	ToolStripMenuItem^ button = safe_cast<ToolStripMenuItem^>(sender);
+
+
+}
 private: System::Void checkBox10_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void checkBox38_CheckedChanged_2(System::Object^ sender, System::EventArgs^ e) {
